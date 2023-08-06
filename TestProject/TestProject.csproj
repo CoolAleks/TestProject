@@ -23,6 +23,8 @@
   <ItemGroup>
     <Folder Include="PageObject\" />
     <Folder Include="Test\" />
+    <Folder Include="Helpers\" />
+	  
   </ItemGroup>
 
 </Project>
