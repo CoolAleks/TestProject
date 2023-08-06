@@ -12,13 +12,13 @@ namespace TestProject.Test
 {
     public class AuthorizationTest : BaseClass
 
-
-
     {
 
         [Test]
         public void MainMenuPage()
         {
+            Console.WriteLine("Start");
+
             MainMenuPage mainMenuPage = new MainMenuPage(driver);
             LoginPage loginPage = mainMenuPage.LoginButtonClick(driver);
             SignupPage signupPage = loginPage.SignupButtonClick(driver);
@@ -27,6 +27,11 @@ namespace TestProject.Test
             DeleteAccountPage deleteAccountPage = loggedAccountPage.DeleteAccount(driver);
             deleteAccountPage.ToMainPage(driver);
 
+            Console.WriteLine("Finish");
         }
     }
 }
+
+
+
+
