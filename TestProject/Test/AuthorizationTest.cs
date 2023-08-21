@@ -1,12 +1,11 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Xml.Linq;
 using TestProject.PageObject;
-using OpenQA.Selenium.Chrome;
-using TestProject.Helpers;
+using TestProject.Serv;
+using static RestAssured.Dsl;
+
+
+
 
 namespace TestProject.Test
 {
@@ -14,21 +13,40 @@ namespace TestProject.Test
 
     {
 
-        [Test]
-        public void MainMenuPage()
+        //[Test]
+        //public void LoginWithCorrectCredentials()
+        //{
+        //    var LoginPage = Navigation.NavigateToLoginPage(driver);
+        //}
+
+        //[Test]
+        //public void LoginWithWrongCredentials()
+        //{
+        //    var LoginPage = Navigation.NavigateToLoginPage(driver);
+        //    var a = LoginPage.GoToSignupPage(driver).AccountNextCreatedPage(driver);
+        //}
+
+
+
+        [Test, Order(1)]
+        public void AddingAndRemovingItemsToCart()
         {
-            Console.WriteLine("Start");
-
-            MainMenuPage mainMenuPage = new MainMenuPage(driver);
-            LoginPage loginPage = mainMenuPage.LoginButtonClick(driver);
-            SignupPage signupPage = loginPage.SignupButtonClick(driver);
-            AccountCreatedPage accountCreatedPage = signupPage.FillingFields(driver);
-            LoggedAccountPage loggedAccountPage = accountCreatedPage.ButtonNextClick(driver);
-            DeleteAccountPage deleteAccountPage = loggedAccountPage.DeleteAccount(driver);
-            deleteAccountPage.ToMainPage(driver);
-
-            Console.WriteLine("Finish");
+            var ProductPage = Navigation.NavigateToProductPage(driver);
+            ProductPage.ScrollTo(driver);
+            ProductPage.AddItemToCart(driver);
+            ProductPage.OpenPageViewCart(driver).RemoveItemFromCart(driver);
         }
+
+
+        //[Test]
+        //public void GetLocationsForUsZipCode90210_CheckStatusCode_ShouldBe200()
+        //{
+        //    Given()
+        //    .When()
+        //    .Get("http://api.zippopotam.us/us/90210")
+        //    .Then()
+        //    .StatusCode(200);
+        //}
     }
 }
 

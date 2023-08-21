@@ -10,20 +10,21 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
 		<PackageReference Include="Faker.Net" Version="2.0.154" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.0" />
 		<PackageReference Include="NUnit" Version="3.13.3" />
+		<PackageReference Include="NUnit.Allure" Version="1.2.1.1" />
 		<PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
 		<PackageReference Include="NUnit.Analyzers" Version="3.6.1" />
 		<PackageReference Include="coverlet.collector" Version="3.2.0" />
+		<PackageReference Include="RestAssured.Net" Version="4.1.0" />
 		<PackageReference Include="Selenium.WebDriver" Version="4.11.0" />
 		<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="115.0.5790.17000" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="PageObject\" />
 		<Folder Include="Test\" />
-		<Folder Include="Helpers\" />
 	</ItemGroup>
 
 </Project>
