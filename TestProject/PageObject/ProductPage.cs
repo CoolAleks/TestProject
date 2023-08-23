@@ -11,7 +11,7 @@ namespace TestProject.PageObject
         //readonly By fieldViewCart = By.XPath("//*[@id ='susbscribe_email']");
         readonly By addProductToCart2 = By.XPath("(//a[@data-product-id='43'])[1]");
         readonly By clickViewCart = By.XPath("//u[text()='View Cart']");
-        readonly By clickView = By.XPath("/html/body/section[2]/div/div/div[2]/div/div[35]/div/div[1]/div[1]/a");
+        readonly By clickView = By.CssSelector(".col-sm-4:nth-child(36) .product-overlay .btn");
 
 
 
@@ -40,8 +40,9 @@ namespace TestProject.PageObject
 
         public ViewCartPage OpenPageViewCart(IWebDriver driver)
         {
-            Helper.WaitElementIsVisible(driver, clickViewCart);
+            
             var _clickViewCart = driver.FindElement(clickViewCart);
+            Helper.WaitElementIsVisible(driver, clickViewCart);
             _clickViewCart.Click();
             return new ViewCartPage(driver);
 

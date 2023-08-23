@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using TestProject.Helpers;
 using TestProject.PageObject;
 
 
@@ -137,7 +138,9 @@ namespace TestProject.PageObject
         public AccountCreatedPage AccountNextCreatedPage(IWebDriver driver)
         {
             var _buttonCreateAccount = driver.FindElement(buttonCreateAccount);
+            Helper.WaitElementIsVisible(driver,(By)_buttonCreateAccount);
             _buttonCreateAccount.Click();
+
             return new AccountCreatedPage(driver);
         }
     }
